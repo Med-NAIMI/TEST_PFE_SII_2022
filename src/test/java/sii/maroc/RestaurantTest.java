@@ -73,7 +73,8 @@ public class RestaurantTest {
      */
     @Test
     public void shouldServeMixedOrders(){
-        Restaurant restaurant = new Restaurant("1Kg Flour", "50 tomatoes", "sea salt", "6 balls Mozzarella", "olive oil", "water");
+        Restaurant restaurant = new Restaurant("1Kg Flour", "50 tomatoes", "sea salt", 
+        		"6 balls Mozzarella", "olive oil", "water");
         Ticket ticket = restaurant.order("3 Tomato Mozzarella Salad").and("2 Pizza");
         Meal meal = restaurant.retrieve(ticket);
         assertThat(meal.servedDishes()).isEqualTo(5);
