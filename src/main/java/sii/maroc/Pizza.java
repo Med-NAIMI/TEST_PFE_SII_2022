@@ -10,7 +10,7 @@ public class Pizza extends Dish {
 	@Override
 	public int cookingDuration() {
 		
-		return 6;
+		return 20;
 	}
 
 }

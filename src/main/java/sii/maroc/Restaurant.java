@@ -47,17 +47,18 @@ public class Restaurant {
 		
 		//find type Of Dishe
 		Pattern pTomatoMozzarella = Pattern.compile("Tomato Mozzarella Salad");  
-		Matcher mTomatoMozzarella1 = pTomatoMozzarella.matcher(string); 
+		Matcher mTomatoMozzarella = pTomatoMozzarella.matcher(string); 
 		
 		Pattern pPizza = Pattern.compile("Pizza");  
 		Matcher mPizza = pPizza.matcher(string); 
 		
 		Dish dish=null;
+		boolean b0=mTomatoMozzarella.find();
+		boolean b1=mPizza.find();
 		
-		if(mPizza.matches()) {
+		if(b0) {
 			dish=new TomatoMozarella();
-			
-		}else if(mPizza.matches()){
+		}else if(b1){
 			dish=new Pizza();
 		}
 		
@@ -78,7 +79,4 @@ public class Restaurant {
 		Meal meal=new Meal(ticket.listOfDishes, ticket.listOfNumbers);		
 		return meal;
 	}
-
-
-	
 }

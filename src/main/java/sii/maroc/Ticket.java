@@ -37,11 +37,12 @@ public class Ticket {
 				Matcher mPizza = pPizza.matcher(string); 
 				
 				Dish dish=null;
-				
-				if(mPizza.matches()) {
+				boolean b0=mTomatoMozzarella1.find();
+				boolean b1=mPizza.find();
+				if(b0) {
 					dish=new TomatoMozarella();
 					
-				}else if(mPizza.matches()){
+				}else if(b1){
 					dish=new Pizza();
 				}
 				

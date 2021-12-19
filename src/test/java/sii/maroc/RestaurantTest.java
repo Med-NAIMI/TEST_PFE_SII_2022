@@ -32,6 +32,10 @@ public class RestaurantTest {
 // Allowed modification zone starts here
     @Test
     public void shouldFailWhenOutOfStock(){
+    	Restaurant restaurant = new Restaurant("1 balls Mozzarella", "1 tomatoes", "olive oil", "pepper");
+        Ticket ticket = restaurant.order("2 Tomato Mozzarella Salad");
+        Meal meal = restaurant.retrieve(ticket);
+    	
         Assert.fail();
     }
 // Allowed modification zone ends here
@@ -46,7 +50,8 @@ public class RestaurantTest {
      */
     @Test
     public void shouldCookFasterWhenDoingMultipleInstanceOfTheSameDish(){
-        Restaurant restaurant = new Restaurant("6 balls Mozzarella", "20 tomatoes", "olive oil", "sea salt");
+        Restaurant restaurant = new Restaurant("6 balls Mozzarella", "20 tomatoes", "olive oil", 
+        		"sea salt");
         Ticket ticket = restaurant.order("4 Tomato Mozzarella Salad");
         Meal meal = restaurant.retrieve(ticket);
         assertThat(meal.servedDishes()).isEqualTo(4);
@@ -78,7 +83,7 @@ public class RestaurantTest {
         Ticket ticket = restaurant.order("3 Tomato Mozzarella Salad").and("2 Pizza");
         Meal meal = restaurant.retrieve(ticket);
         assertThat(meal.servedDishes()).isEqualTo(5);
-        assertThat(meal.cookingDuration()).isEqualTo(27);
+        assertThat(meal.cookingDuration()).isEqualTo(42);
     }
 
 }
